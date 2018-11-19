@@ -55,7 +55,7 @@ $(function() {
 
   // 2. 通过事件委托给 按钮注册点击事件
   $('.lt_content tbody').on("click", ".btn", function() {
-    console.log( "呵呵额" );
+   
     // 弹出模态框
     $('#userModal').modal("show");
 

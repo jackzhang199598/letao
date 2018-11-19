@@ -1,13 +1,24 @@
+/* lvha  */
 a:link,
 a:visited,
 a:hover,
 a:active {
   text-decoration: none;
 }
-ul{
+
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.red {
+  color: #A94442;
+}
+/* 重置时, 注意权重问题 */
+.table.table-bordered th,
+.table.table-bordered td {
+  text-align: center;
+  vertical-align: middle;
 }
 
 
@@ -29,10 +40,11 @@ ul{
 .mt_20 {
   margin-top: 20px;
 }
-.mb_20 {
+.mb_20{
   margin-bottom: 20px;
 }
-.lt_aside{
+
+.lt_aside {
   position: fixed;
   width: 180px;
   height: 100%;
@@ -42,10 +54,11 @@ ul{
   z-index: 999;
   transition: all 1s;
 }
-.lt_aside.hidemenu{
+.lt_aside.hidemenu {
   left: -180px;
 }
-.lt_aside .brand{
+
+.lt_aside .brand {
   width: 180px;
   height: 50px;
   line-height: 50px;
@@ -56,7 +69,7 @@ ul{
 .lt_aside .brand a {
   color: #fff;
 }
-.lt_aside .user{
+.lt_aside .user {
   padding-top: 30px;
   height: 180px;
 }
@@ -75,7 +88,9 @@ ul{
   text-align: center;
 }
 
-.lt_aside .nav li a{
+
+
+.lt_aside .nav li a {
   display: block;
   height: 40px;
   line-height: 40px;
@@ -83,10 +98,11 @@ ul{
   padding-left: 40px;
   border-left: 3px solid transparent;
 }
-.lt_aside .nav li a.current{
+.lt_aside .nav li a.current {
   background-color: #1D1F21;
-  border-left: 3px solid #006699; 
+  border-left: 3px solid #006699;
 }
+
 .lt_aside .nav li a i {
   margin-right: 5px;
 }
@@ -96,6 +112,8 @@ ul{
 .lt_aside .nav li .child a {
   padding-left: 60px;
 }
+
+
 .lt_main {
   height: 1000px;
   padding-left: 180px;
@@ -105,10 +123,7 @@ ul{
 .lt_main.hidemenu {
   padding-left: 0px
 }
-.lt_topbar.hidemenu {
-  padding-left: 0px;
-}
-.lt_topbar{
+.lt_topbar {
   position: fixed;
   left: 0;
   top: 0;
@@ -117,6 +132,9 @@ ul{
   background-color: #3C8DBC;
   padding-left: 180px;
   transition: all 1s;
+}
+.lt_topbar.hidemenu {
+  padding-left: 0px;
 }
 .lt_topbar .icon_left,
 .lt_topbar .icon_right {
@@ -127,13 +145,10 @@ ul{
   color: #fff;
   font-size: 20px;
 }
+
+
 .echarts_left,
 .echarts_right {
   height: 400px;
   width: 48%;
-}
-.table.table-bordered th,
-.table.table-bordered td {
-  text-align: center;
-  vertical-align: middle;
 }

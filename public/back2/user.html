@@ -27,7 +27,7 @@
   <!-- 导航 -->
   <div class="nav">
     <ul>
-      <li><a href="user.html" class="current"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li><a class="current" href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li>
         <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
         <div class="child">
@@ -50,6 +50,7 @@
 
   <!-- container 响应式版心 container-fluid 流式布局容器(宽度100%, 默认左右padding 15px) -->
   <div class="container-fluid">
+
     <!-- 链接导航 -->
     <ol class="breadcrumb mt_20">
       <li><a href="index.html">管理系统</a></li>
@@ -57,6 +58,8 @@
     </ol>
 
     <div class="lt_content">
+      <!-- 表格 -->
+      <!-- table(基础表格样式) table-bordered(添加边框) table-hover(添加hover效果) -->
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -73,77 +76,68 @@
       </table>
 
       <div class="text-right">
-        <ul id="paginator"></ul>
-      </div>
-
+          <ul id="paginator"></ul>
+        </div>
     </div>
+
   </div>
 </div>
-
-
-
-<!-- 退出模态框 -->
-<!-- 模态框大小: modal-lg 大型   默认中型    modal-sm 小型 -->
-<!-- 外层的蒙层 -->
-<div class="modal fade" tabindex="-1" id="logoutModal">
-  <!-- 内部的模态框 -->
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <!-- 头部 -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title">温馨提示</h4>
-      </div>
-      <!-- 中间 -->
-      <div class="modal-body">
-        <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗？</span></p>
-      </div>
-      <!-- 底部 -->
-      <!-- data-dismiss="modal" 可以用于关闭模态框 -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 <div class="modal fade" tabindex="-1" id="userModal">
-  <!-- 内部的模态框 -->
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <!-- 头部 -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title">温馨提示</h4>
-      </div>
-      <!-- 中间 -->
-      <div class="modal-body">
-        <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span>你确定要执行此操作吗？</span></p>
-      </div>
-      <!-- 底部 -->
-      <!-- data-dismiss="modal" 可以用于关闭模态框 -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="submitBtn">确定</button>
+    <!-- 内部的模态框 -->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <!-- 头部 -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <!-- 中间 -->
+        <div class="modal-body">
+          <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span>你确定要执行此操作吗？</span></p>
+        </div>
+        <!-- 底部 -->
+        <!-- data-dismiss="modal" 可以用于关闭模态框 -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="submitBtn">确定</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="modal fade" tabindex="-1" id="logoutModal">
+      <!-- 内部的模态框 -->
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <!-- 头部 -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title">温馨提示</h4>
+          </div>
+          <!-- 中间 -->
+          <div class="modal-body">
+            <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗？</span></p>
+          </div>
+          <!-- 底部 -->
+          <!-- data-dismiss="modal" 可以用于关闭模态框 -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 <script type="text/html" id="tmp">
   {{ each rows v i }}
     <tr>
-      <td>{{ (page-1)*size+i+1 }}</td>
+      <td>{{ (page-1)*size + i+1 }}</td>
       <td>{{ v.username }}</td>
       <td>{{ v.mobile }}</td>
-      <!-- isDelete 标记当前用户状态的  1  0
-           1: 表示当前用户 正常启用
-           0: 表示当前用户 被禁用
-      -->
+
       <td>{{ v.isDelete === 1 ? "正常" : "已禁用" }}</td>
       <td data-id="{{ v.id }}">
         {{ if v.isDelete === 1 }}
@@ -160,12 +154,13 @@
 
 
 
+
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./lib/artTemplate/template-web.js"></script>
-<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否登录 -->
 <script src="./js/isLogin.js"></script>
